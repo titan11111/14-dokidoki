@@ -71,6 +71,7 @@ function showTitleScreen() {
     resetGame();
     changeCharacterExpression('normal'); // タイトル画面に戻る際にキャラクターをノーマルにする
     stopAllBGM();
+    hideExplanationModal(); // Ensure modal is hidden
 }
 
 function startGameAndPlayBGM() {
@@ -83,6 +84,7 @@ function showSubjectSelect() {
     showScreen('subject-select');
     changeCharacterExpression('normal'); // 科目選択画面でキャラクターをノーマルにする
     playSound('bgmSubjectSelect');
+    hideExplanationModal(); // Ensure modal is hidden
 }
 
 function showQuizScreen() {
@@ -90,6 +92,7 @@ function showQuizScreen() {
     changeCharacterExpression('normal'); // クイズ画面でキャラクターをノーマルにする
     stopAllBGM();
     playSound('bgmQuiz');
+    hideExplanationModal(); // Ensure modal is hidden
 }
 
 function showGameOverScreen() {
@@ -127,6 +130,7 @@ function showGameOverScreen() {
     
     // 次のゲームのためにtotalQuestionsAnsweredをリセット
     gameState.totalQuestionsAnswered = 0; 
+    hideExplanationModal(); // Ensure modal is hidden
 }
 
 // ゲーム初期化
@@ -164,6 +168,7 @@ function changeCharacterExpression(expression) {
 
     if (characterImages[expression]) {
         const imageUrl = characterImages[expression];
+        // Use a placeholder image if the specified image fails to load
         if (titleCharacterImg) titleCharacterImg.src = imageUrl;
         if (subjectSelectCharacterImg) subjectSelectCharacterImg.src = imageUrl;
         if (quizCharacterImg) quizCharacterImg.src = imageUrl;
@@ -223,8 +228,8 @@ async function startGame(subject) {
 function startNextQuestion() {
     clearInterval(gameState.timerInterval); // 前のタイマーをクリア
     document.getElementById('result-display').classList.add('hidden'); // 結果表示を非表示にする
-    document.getElementById('explanation-area').classList.add('hidden'); // 解説エリアを非表示にする
-    
+    hideExplanationModal(); // Ensure modal is hidden
+
     // 選択肢ボタンをリセット
     const optionButtons = document.querySelectorAll('.option-btn');
     optionButtons.forEach(button => {
@@ -283,34 +288,42 @@ function selectAnswer(selectedIndex) {
         playSound('fuseikai');
     }
 
-    // 解説の表示
-    const explanationArea = document.getElementById('explanation-area');
-    const explanationText = document.getElementById('explanation-text');
-    if (gameState.currentQuestion.explanation) {
-        explanationText.textContent = gameState.currentQuestion.explanation;
-        explanationArea.classList.remove('hidden');
-    } else {
-        explanationArea.classList.add('hidden'); // 解説がない場合は非表示にする
-    }
-
     updateUI();
     document.getElementById('result-display').classList.remove('hidden');
 
-    if (gameState.lives <= 0) {
-        // ライフが0になったらゲームオーバー
-        setTimeout(() => showGameOverScreen(), 1000);
-    } else {
-        // 次の問題へ進む準備
-        gameState.currentQuestionIndex++;
-    }
+    // Show explanation modal after a short delay
+    setTimeout(() => {
+        showExplanationModal();
+    }, 1000); // Wait for 1 second before showing modal
 }
 
-// 次の問題ボタン
+// Explanation Modal Functions
+function showExplanationModal() {
+    const explanationModalOverlay = document.getElementById('explanation-modal-overlay');
+    const explanationText = document.getElementById('explanation-text');
+    
+    if (gameState.currentQuestion.explanation) {
+        explanationText.textContent = gameState.currentQuestion.explanation;
+    } else {
+        explanationText.textContent = "ごめんなさい、この問題の解説はありません。";
+    }
+    explanationModalOverlay.classList.remove('hidden');
+}
+
+function hideExplanationModal() {
+    const explanationModalOverlay = document.getElementById('explanation-modal-overlay');
+    explanationModalOverlay.classList.add('hidden');
+}
+
+
+// 次の問題ボタン (Now handles modal hiding)
 function nextQuestion() {
+    hideExplanationModal(); // Hide the explanation modal first
     // ライフが0の場合はゲームオーバー画面へ、そうでない場合は次の問題へ
     if (gameState.lives <= 0) {
         showGameOverScreen();
     } else {
+        gameState.currentQuestionIndex++;
         startNextQuestion();
     }
 }
@@ -345,31 +358,22 @@ function startTimer() {
             playSound('fuseikai');
             updateUI();
 
-            // 解説の表示 (時間切れの場合も)
-            const explanationArea = document.getElementById('explanation-area');
-            const explanationText = document.getElementById('explanation-text');
-            if (gameState.currentQuestion.explanation) {
-                explanationText.textContent = gameState.currentQuestion.explanation;
-                explanationArea.classList.remove('hidden');
-            } else {
-                explanationArea.classList.add('hidden');
-            }
-
             document.getElementById('result-display').classList.remove('hidden');
-            
-            if (gameState.lives <= 0) {
-                gameState.totalQuestionsAnswered++; // 回答数をカウント
-                setTimeout(() => showGameOverScreen(), 1000);
-            } else {
-                gameState.totalQuestionsAnswered++; // 回答数をカウント
-                gameState.currentQuestionIndex++;
-            }
+            gameState.totalQuestionsAnswered++; // 回答数をカウント (時間切れも含む)
+
+            setTimeout(() => {
+                showExplanationModal();
+            }, 1000); // Show modal after delay
+
+            // Game over check will happen when "Next Question" is clicked from modal
         }
     }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     showTitleScreen();
+    // Pre-load questions to avoid delay on first subject selection
+    loadQuestions(); 
 });
 
 // デバッグ用関数（必要に応じて使用）
