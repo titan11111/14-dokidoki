@@ -47,319 +47,386 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(145deg, #4a5568, #2d3748);
-    border: 3px solid #718096;
-    border-radius: 0;
-    padding: 12px 20px;
+    background: linear-gradient(145deg, #4a5568, #2d3748); /* グラデーション */
+    border: 2px solid #a0aec0; /* 枠線 */
+    border-radius: 4px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: all 0.1s;
-    text-shadow: 1px 1px 0px #000;
-    box-shadow: 
-        3px 3px 0px #1a202c,
-        inset 1px 1px 0px rgba(255,255,255,0.3);
+    transition: all 0.1s ease-in-out;
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.5); /* 影 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
 }
 
 .pixel-btn:hover {
-    background: linear-gradient(145deg, #5a6578, #3d4758);
-    transform: translate(-1px, -1px);
-    box-shadow: 
-        4px 4px 0px #1a202c,
-        inset 1px 1px 0px rgba(255,255,255,0.4);
+    background: linear-gradient(145deg, #5a6b7e, #3a475a);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.6);
+    transform: translate(-1px, -1px); /* ホバー時に少し持ち上げる */
 }
 
 .pixel-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 
-        1px 1px 0px #1a202c,
-        inset 1px 1px 0px rgba(255,255,255,0.2);
+    background: linear-gradient(145deg, #3a475a, #4a5568);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.4);
+    transform: translate(2px, 2px); /* クリック時に押し込む */
+}
+
+.pixel-btn:disabled {
+    background: #6b7280;
+    border-color: #4a5568;
+    color: #a0aec0;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.7;
 }
 
 /* タイトル画面 */
-.title-content {
+#title-screen, #subject-select, #quiz-screen, #gameover-screen {
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title-content, .subject-content, .quiz-content, .gameover-content {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 30px;
     text-align: center;
     max-width: 90%;
-    padding: 20px;
+    width: 600px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative; /* 子要素のabsolute配置のため */
+    min-height: 500px; /* 最小高さを設定 */
+    justify-content: space-between; /* 要素を上下に配置 */
 }
 
 .game-title {
-    font-size: clamp(28px, 6vw, 48px);
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 0px #000;
-    color: #ffd700;
-    letter-spacing: 2px;
+    font-size: clamp(30px, 5vw, 50px);
+    color: #ffeb3b;
+    margin-bottom: 10px;
+    text-shadow: 4px 4px 0px #000, -2px -2px 0px #000;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 100% { text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 0 0 10px rgba(255,255,0,0.7); }
+    50% { text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 0 0 20px rgba(255,255,0,1); }
 }
 
 .subtitle {
-    font-size: clamp(14px, 3vw, 20px);
-    margin-bottom: 30px;
-    color: #f0f0f0;
+    font-size: clamp(18px, 3vw, 24px);
+    color: #a7f3d0;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #000;
 }
 
 .start-btn {
-    font-size: clamp(16px, 4vw, 24px);
+    font-size: clamp(20px, 4vw, 30px);
     padding: 15px 30px;
-    background: linear-gradient(145deg, #38a169, #2f855a);
-    border-color: #48bb78;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    background: linear-gradient(145deg, #4CAF50, #2E8B57); /* 緑系 */
+    border-color: #8BC34A;
 }
 
 .start-btn:hover {
-    background: linear-gradient(145deg, #48bb78, #38a169);
+    background: linear-gradient(145deg, #5cb85c, #3cb371);
 }
 
 .game-rules {
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #4a5568;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #a7f3d0;
+    padding: 15px;
     border-radius: 8px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
 }
 
 .game-rules h3 {
-    color: #ffd700;
-    margin-bottom: 15px;
-    font-size: clamp(16px, 3vw, 20px);
+    font-size: clamp(18px, 3vw, 22px);
+    color: #ffeb3b;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .game-rules ul {
     list-style: none;
-    text-align: left;
+    padding: 0;
 }
 
 .game-rules li {
-    margin-bottom: 8px;
-    font-size: clamp(12px, 2.5vw, 16px);
-    padding-left: 20px;
-    position: relative;
+    font-size: clamp(14px, 2.5vw, 18px);
+    margin-bottom: 5px;
+    line-height: 1.4;
 }
 
-.game-rules li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #ffd700;
+.game-rules li::before {
+    content: "👉 ";
+    color: #a7f3d0;
 }
+
+
+/* キャラクター表示 */
+.character-display {
+    width: 100px; /* 固定幅 */
+    height: 100px; /* 固定高さ */
+    position: absolute; /* 親要素を基準に配置 */
+    top: 15px; /* 上からの位置 */
+    right: 15px; /* 右からの位置 */
+    overflow: hidden; /* 画像がはみ出さないように */
+    border-radius: 50%; /* 丸く切り抜く */
+    border: 3px solid #ffeb3b; /* 枠線 */
+    background-color: rgba(0, 0, 0, 0.3); /* 背景 */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* 影 */
+    z-index: 10; /* 他の要素より手前に表示 */
+}
+
+.character-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像が枠内に収まるように調整 */
+    display: block; /* 余白をなくす */
+}
+
 
 /* 科目選択画面 */
 .subject-content {
-    text-align: center;
-    max-width: 90%;
-    padding: 20px;
-}
-
-.screen-title {
-    font-size: clamp(20px, 5vw, 32px);
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 0px #000;
-    color: #ffd700;
+    gap: 30px; /* 要素間のスペースを広げる */
 }
 
 .subject-buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
-    margin-bottom: 30px;
-    max-width: 600px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .subject-btn {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    min-height: 100px;
-    background: linear-gradient(145deg, #4299e1, #3182ce);
-    border-color: #63b3ed;
-}
-
-.subject-btn:hover {
-    background: linear-gradient(145deg, #63b3ed, #4299e1);
-}
-
-.subject-btn.special {
-    background: linear-gradient(145deg, #ed64a6, #d53f8c);
-    border-color: #f56565;
-}
-
-.subject-btn.special:hover {
-    background: linear-gradient(145deg, #f56565, #ed64a6);
-}
-
-.subject-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.subject-name {
-    font-size: clamp(14px, 3vw, 18px);
-    font-weight: bold;
-}
-
-.back-btn {
-    background: linear-gradient(145deg, #718096, #4a5568);
+    padding: 15px 10px;
+    font-size: clamp(16px, 3vw, 20px);
+    height: 100px; /* ボタンの高さを固定 */
+    background: linear-gradient(145deg, #6c7a89, #404c5a); /* 青灰色系 */
     border-color: #a0aec0;
 }
 
-/* キャラクター表示 */
-.character-display {
-    margin: 20px 0;
+.subject-btn.special {
+    background: linear-gradient(145deg, #e74c3c, #c0392b); /* 特別な科目の色 */
+    border-color: #e74c3c;
 }
 
-.character-img {
-    width: clamp(80px, 15vw, 120px);
-    height: clamp(80px, 15vw, 120px);
-    object-fit: contain;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 8px;
+.subject-btn:hover {
+    background: linear-gradient(145deg, #7a8a99, #505c6a);
+}
+
+.subject-btn.special:hover {
+    background: linear-gradient(145deg, #f05c4c, #d0493b);
+}
+
+.subject-icon {
+    font-size: clamp(24px, 4vw, 36px);
+    margin-bottom: 5px;
+}
+
+.subject-name {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.back-btn {
+    margin-top: 20px;
+    background: linear-gradient(145deg, #718096, #4a5568);
+    border-color: #a0aec0;
+    font-size: clamp(14px, 3vw, 18px);
+    padding: 12px 24px;
 }
 
 /* クイズ画面 */
 .quiz-content {
     width: 95%;
     max-width: 800px;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.8);
-    border: 3px solid #4a5568;
-    border-radius: 8px;
-    padding: 15px;
+    height: 90%; /* 画面の高さに合わせる */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto; /* info, char, question, options, result */
+    grid-template-areas: 
+        "game-info"
+        "character-display"
+        "question-area"
+        "options-area"
+        "result-display";
+    gap: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-items: center; /* グリッドアイテムを中央揃え */
 }
 
-/* ゲーム情報バー */
 .game-info {
+    grid-area: game-info;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-    border: 2px solid #4a5568;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: clamp(12px, 2.5vw, 16px);
+    justify-content: space-around;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: clamp(16px, 3vw, 20px);
 }
 
 .score-area, .lives-area, .timer-area {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
 }
 
-.score-label, .lives-label {
-    color: #a0aec0;
+.score-label, .lives-label, .timer-icon {
+    color: #ffeb3b;
 }
 
-#score {
-    color: #ffd700;
+#lives .heart {
+    color: red;
+    font-size: clamp(18px, 3.5vw, 24px);
+    transition: all 0.3s ease; /* アニメーション */
+}
+
+#lives .heart.faded {
+    opacity: 0.3; /* 不正解時にハートを薄くする */
+}
+
+#timer {
     font-weight: bold;
+    color: #a7f3d0;
 }
 
-.heart {
-    font-size: 18px;
+.timer-warning {
+    color: #e74c3c !important; /* 強制的に赤く */
+    animation: pulse 0.5s infinite alternate; /* 脈動アニメーション */
 }
 
-.timer-area {
-    color: #ff6b6b;
-    font-weight: bold;
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.1); opacity: 0.8; }
 }
 
-.timer-icon {
-    font-size: 18px;
+/* キャラクター表示（クイズ画面用） */
+.quiz-content .character-display {
+    grid-area: character-display;
+    position: static; /* grid layout の中で通常配置 */
+    margin-bottom: 10px;
 }
 
-/* 問題エリア */
 .question-area {
-    flex: 1;
+    grid-area: question-area;
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .question-box {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    color: #2d3748;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #a7f3d0;
+    border-radius: 10px;
     padding: 20px;
-    border: 3px solid #4a5568;
-    border-radius: 8px;
+    width: 100%;
+    min-height: 80px; /* 最小高さを設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(167, 243, 208, 0.5);
 }
 
 #question-text {
-    font-size: clamp(14px, 3.5vw, 20px);
-    font-weight: bold;
-    line-height: 1.4;
+    font-size: clamp(18px, 3.5vw, 24px);
+    color: #fff;
+    line-height: 1.5;
 }
 
-/* 選択肢エリア */
 .options-area {
+    grid-area: options-area;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .option-btn {
     display: flex;
     align-items: center;
-    padding: 15px;
+    justify-content: flex-start; /* 文字を左寄せ */
     text-align: left;
-    background: linear-gradient(145deg, #4a5568, #2d3748);
-    border-color: #718096;
-    min-height: 60px;
+    padding: 15px;
+    min-height: 60px; /* ボタンの最小高さを設定 */
+    background: linear-gradient(145deg, #a0aec0, #718096); /* 選択肢ボタンの色 */
+    border-color: #cbd5e0;
+    font-size: clamp(16px, 2.8vw, 20px);
 }
 
 .option-btn:hover {
-    background: linear-gradient(145deg, #5a6578, #3d4758);
+    background: linear-gradient(145deg, #b0bec5, #88929e);
 }
 
 .option-btn.correct {
-    background: linear-gradient(145deg, #38a169, #2f855a) !important;
-    border-color: #48bb78 !important;
+    background: linear-gradient(145deg, #4CAF50, #2E8B57); /* 正解色 */
+    border-color: #8BC34A;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
 }
 
 .option-btn.incorrect {
-    background: linear-gradient(145deg, #e53e3e, #c53030) !important;
-    border-color: #fc8181 !important;
+    background: linear-gradient(145deg, #e74c3c, #c0392b); /* 不正解色 */
+    border-color: #e74c3c;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
 }
 
 .option-btn.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    opacity: 0.8;
 }
 
 .option-letter {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffd700;
-    font-weight: bold;
-    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 4px;
-    margin-right: 12px;
-    min-width: 40px;
+    padding: 8px 12px;
+    margin-right: 10px;
+    font-weight: bold;
+    min-width: 40px; /* 文字の幅を固定 */
     text-align: center;
-    font-size: clamp(14px, 3vw, 18px);
 }
 
-.option-text {
-    flex: 1;
-    font-size: clamp(12px, 2.8vw, 16px);
-    line-height: 1.3;
+.option-btn.correct .option-letter {
+    background-color: rgba(0, 100, 0, 0.5);
 }
 
-/* 結果表示 */
+.option-btn.incorrect .option-letter {
+    background-color: rgba(100, 0, 0, 0.5);
+}
+
+
+/* 結果表示エリア */
 .result-display {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #4a5568;
-    border-radius: 6px;
-    padding: 20px;
+    grid-area: result-display;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #a7f3d0;
+    box-shadow: 0 0 15px rgba(167, 243, 208, 0.5);
+    transition: all 0.3s ease;
 }
 
 .result-display.hidden {
@@ -367,68 +434,120 @@ body {
 }
 
 #result-text {
-    font-size: clamp(16px, 4vw, 24px);
-    margin-bottom: 20px;
+    font-size: clamp(20px, 4vw, 30px);
     font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* 解説エリア */
+.explanation-area {
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px dashed #a7f3d0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.explanation-area.hidden {
+    display: none;
+}
+
+.explanation-area h4 {
+    font-size: clamp(16px, 3vw, 20px);
+    color: #fff;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#explanation-text {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: #e0e0e0;
+    line-height: 1.4;
 }
 
 #next-btn {
-    background: linear-gradient(145deg, #38a169, #2f855a);
-    border-color: #48bb78;
-    font-size: clamp(14px, 3vw, 18px);
-    padding: 12px 24px;
+    font-size: clamp(16px, 3vw, 22px);
+    padding: 12px 25px;
+    background: linear-gradient(145deg, #3498db, #2980b9); /* 青系 */
+    border-color: #5dade2;
+}
+
+#next-btn:hover {
+    background: linear-gradient(145deg, #44a8eb, #3990c9);
 }
 
 /* ゲームオーバー画面 */
 .gameover-content {
-    text-align: center;
-    max-width: 90%;
-    padding: 20px;
+    gap: 20px;
+    position: relative;
+}
+
+.gameover-content .character-display {
+    position: static;
+    margin: 0 auto 10px auto; /* 中央揃え */
+}
+
+.screen-title {
+    font-size: clamp(28px, 5vw, 40px);
+    color: #ffeb3b;
+    text-shadow: 3px 3px 0px #000;
 }
 
 .final-score {
-    font-size: clamp(18px, 4vw, 28px);
-    margin: 30px 0;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #4a5568;
-    border-radius: 8px;
-    padding: 20px;
+    font-size: clamp(20px, 4vw, 36px);
+    color: #a7f3d0;
+    margin-top: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 
-#final-score {
-    display: block;
-    font-size: clamp(36px, 8vw, 64px);
-    color: #ffd700;
+.final-score span {
+    font-size: clamp(36px, 6vw, 60px);
     font-weight: bold;
-    margin: 10px 0;
-    text-shadow: 2px 2px 0px #000;
+    color: #ffeb3b;
+    text-shadow: 3px 3px 0px #000;
 }
 
 .gameover-message {
-    margin: 20px 0;
-    font-size: clamp(14px, 3vw, 18px);
-    color: #a0aec0;
+    font-size: clamp(18px, 3.5vw, 28px);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
 .gameover-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+}
+
+.retry-btn, .home-btn {
+    font-size: clamp(16px, 3vw, 22px);
+    padding: 12px 25px;
 }
 
 .retry-btn {
-    background: linear-gradient(145deg, #38a169, #2f855a);
-    border-color: #48bb78;
-    font-size: clamp(14px, 3vw, 18px);
-    padding: 12px 24px;
+    background: linear-gradient(145deg, #f39c12, #e67e22); /* オレンジ系 */
+    border-color: #f1c40f;
+}
+
+.retry-btn:hover {
+    background: linear-gradient(145deg, #f5a722, #eb8e32);
 }
 
 .home-btn {
-    background: linear-gradient(145deg, #718096, #4a5568);
-    border-color: #a0aec0;
-    font-size: clamp(14px, 3vw, 18px);
-    padding: 12px 24px;
+    background: linear-gradient(145deg, #c0392b, #a32e22); /* 赤系 */
+    border-color: #e74c3c;
+}
+
+.home-btn:hover {
+    background: linear-gradient(145deg, #d0493b, #b33e32);
 }
 
 /* スマホ対応 */
@@ -452,6 +571,18 @@ body {
     .gameover-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .character-display {
+        width: 80px;
+        height: 80px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .quiz-content .character-display {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -477,37 +608,74 @@ body {
     .option-letter {
         padding: 6px 10px;
         min-width: 35px;
-        margin-right: 8px;
     }
-}
+    
+    .pixel-btn {
+        font-size: clamp(14px, 3.5vw, 16px);
+        padding: 10px 20px;
+    }
 
-/* アニメーション */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
+    .start-btn {
+        font-size: clamp(18px, 4.5vw, 24px);
+        padding: 12px 25px;
+    }
 
-.shake {
-    animation: shake 0.5s ease-in-out;
-}
+    .game-title {
+        font-size: clamp(24px, 6vw, 40px);
+    }
+    .subtitle {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+    .game-rules h3 {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+    .game-rules li {
+        font-size: clamp(12px, 3vw, 16px);
+    }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+    .subject-btn {
+        font-size: clamp(14px, 3.5vw, 18px);
+        height: 80px;
+    }
+    .subject-icon {
+        font-size: clamp(20px, 4.5vw, 30px);
+    }
+    .subject-name {
+        font-size: clamp(12px, 3vw, 16px);
+    }
 
-.bounce {
-    animation: bounce 0.6s ease-in-out;
-}
+    #question-text {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+    .option-btn {
+        font-size: clamp(14px, 3.5vw, 18px);
+    }
+    #result-text {
+        font-size: clamp(18px, 4.5vw, 26px);
+    }
+    #explanation-area h4 {
+        font-size: clamp(14px, 3.5vw, 18px);
+    }
+    #explanation-text {
+        font-size: clamp(12px, 3vw, 16px);
+    }
+    #next-btn {
+        font-size: clamp(14px, 3.5vw, 20px);
+    }
 
-/* タイマー警告色 */
-.timer-warning {
-    color: #ff4757 !important;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    .screen-title {
+        font-size: clamp(24px, 6vw, 36px);
+    }
+    .final-score {
+        font-size: clamp(18px, 4.5vw, 30px);
+    }
+    .final-score span {
+        font-size: clamp(30px, 6.5vw, 50px);
+    }
+    .gameover-message {
+        font-size: clamp(16px, 4vw, 24px);
+    }
+    .retry-btn, .home-btn {
+        font-size: clamp(14px, 3.5vw, 20px);
+    }
 }
