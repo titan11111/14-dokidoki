@@ -13,7 +13,7 @@
             <div class="title-content">
                 <h1 class="game-title">勉強クイズゲーム</h1>
                 <div class="character-display">
-                    <img id="title-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="title-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
                 </div>
                 <p class="subtitle">中学3年生の挑戦！</p>
                 <button class="start-btn pixel-btn" onclick="startGameAndPlayBGM()">ゲームスタート</button> 
@@ -33,7 +33,7 @@
             <div class="subject-content">
                 <h2 class="screen-title">科目を選んでください</h2>
                 <div class="character-display">
-                    <img id="subject-select-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="subject-select-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
                 </div>
                 <div class="subject-buttons">
                     <button class="subject-btn pixel-btn" onclick="startGame('japanese')">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="character-display">
-                    <img id="quiz-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="quiz-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
                 </div>
                 <div class="question-area">
                     <div class="question-box">
@@ -104,11 +104,7 @@
                 </div>
                 <div id="result-display" class="result-display hidden">
                     <p id="result-text"></p>
-                    <div id="explanation-area" class="explanation-area hidden"> <h4>解説</h4>
-                        <p id="explanation-text"></p>
                     </div>
-                    <button id="next-btn" class="pixel-btn" onclick="nextQuestion()">次の問題</button>
-                </div>
             </div>
         </div>
 
@@ -116,7 +112,7 @@
             <div class="gameover-content">
                 <h2 class="screen-title">ゲームオーバー</h2>
                 <div class="character-display">
-                    <img id="gameover-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_05.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="gameover-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_05.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
                 </div>
                 <div class="final-score">
                     <p>最終スコア</p>
@@ -133,10 +129,20 @@
             </div>
         </div>
 
+        <div id="explanation-modal-overlay" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div id="explanation-area" class="explanation-area"> 
+                    <h4>解説</h4>
+                    <p id="explanation-text"></p>
+                </div>
+                <button id="next-btn" class="pixel-btn" onclick="nextQuestion()">次の問題</button>
+            </div>
+        </div>
+
     </div>
 
     <audio id="bgmTitle" src="audio/ponpon.mp3" loop></audio>
-    <audio id="bgmSubjectSelect" src="audio/Ready_for_Comrade.mp3" loop></audio>
+    <audio id="bgmSubjectSelect" src="audio/Ready_for_Comrade.mpm3" loop></audio>
     <audio id="bgmQuiz" src="audio/Royal_Question.mp3" loop></audio>
     <audio id="seikaiSound" src="audio/seikai2.mp3"></audio>
     <audio id="fuseikaiSound" src="audio/fuseikai2.mp3"></audio>
