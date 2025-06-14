@@ -1,0 +1,651 @@
+{
+  "japanese": [
+    {
+      "question": "次の文の『〜ものの』の意味として最も適切なのはどれ？『努力したものの、結果は出なかった』",
+      "options": [
+        "〜けれど",
+        "〜なので",
+        "〜すると",
+        "〜ように"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "「彼は読書家だ」の中で、『読書家』の意味として正しいものは？",
+      "options": [
+        "読書をよくする人",
+        "本を書いた人",
+        "図書館に勤める人",
+        "読んだ本を覚えている人"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "敬語の中で『尊敬語』に当たるのはどれ？",
+      "options": [
+        "いらっしゃる",
+        "いたします",
+        "申し上げる",
+        "いただく"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『静かな湖面に映る月が美しかった。』という文の主語はどれ？",
+      "options": [
+        "月",
+        "湖面",
+        "美しさ",
+        "静けさ"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『〜ことができる』の文法的な品詞構成で正しいのは？",
+      "options": [
+        "動詞＋補助動詞",
+        "名詞＋助詞",
+        "形容詞＋助動詞",
+        "副詞＋動詞"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『走れメロス』を書いた作家は？",
+      "options": [
+        "太宰治",
+        "芥川龍之介",
+        "夏目漱石",
+        "森鷗外"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『木の葉が舞う』という表現に用いられているのは？",
+      "options": [
+        "擬態語",
+        "擬声語",
+        "倒置法",
+        "直喩"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "『やはり』の品詞は何か？",
+      "options": [
+        "副詞",
+        "接続詞",
+        "感動詞",
+        "名詞"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『〜ないではいられない』という表現の意味に最も近いのは？",
+      "options": [
+        "どうしても〜してしまう",
+        "絶対〜しない",
+        "とても〜しにくい",
+        "〜したくない"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "『しかるべき』という言葉の意味は？",
+      "options": [
+        "当然の",
+        "厳しい",
+        "望ましい",
+        "好ましくない"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "「以心伝心」とはどのような意味？",
+      "options": [
+        "言葉にしなくても気持ちが伝わること",
+        "心を入れ替えること",
+        "心を読まれること",
+        "恋愛関係にあること"
+      ],
+      "correct": 0,
+      "explanation": "以心伝心とは、言葉に出さなくても気持ちが通じ合うことを意味します。"
+    },
+    {
+      "question": "助詞の役割は？",
+      "options": [
+        "文と文をつなぐ",
+        "動詞を強調する",
+        "語と語の関係を示す",
+        "主語を明確にする"
+      ],
+      "correct": 2,
+      "explanation": "助詞は語と語の関係を明確にし、意味を伝えやすくします。"
+    },
+    {
+      "question": "「山月記」の作者は？",
+      "options": [
+        "中島敦",
+        "太宰治",
+        "芥川龍之介",
+        "夏目漱石"
+      ],
+      "correct": 0,
+      "explanation": "中島敦の代表作『山月記』は、プライドと恐れを描いた短編小説です。"
+    },
+    {
+      "question": "次のうち漢文の特徴は？",
+      "options": [
+        "返り点を使う",
+        "カタカナ表記",
+        "ひらがなで書かれる",
+        "外来語が多い"
+      ],
+      "correct": 0,
+      "explanation": "漢文は返り点を用いて、日本語の語順で読むように工夫されています。"
+    },
+    {
+      "question": "「源氏物語」の作者は？",
+      "options": [
+        "紫式部",
+        "清少納言",
+        "小野小町",
+        "和泉式部"
+      ],
+      "correct": 0,
+      "explanation": "『源氏物語』は紫式部によって平安時代に書かれた長編物語です。"
+    }
+  ],
+  "math": [
+    {
+      "question": "一次関数 y = 2x + 3 において、x が 4 のときの y の値は？",
+      "options": [
+        "5",
+        "8",
+        "11",
+        "12"
+      ],
+      "correct": 2,
+      "explanation": "x = 4 を代入すると、y = 2×4 + 3 = 11 になります。"
+    },
+    {
+      "question": "次のうち、x² + 2x + 1 を因数分解した形はどれ？",
+      "options": [
+        "(x+1)(x+1)",
+        "(x+2)(x-1)",
+        "(x+1)(x-2)",
+        "(x-1)(x-1)"
+      ],
+      "correct": 0,
+      "explanation": "x² + 2x + 1 は (x+1)² に因数分解されます。"
+    },
+    {
+      "question": "連立方程式 2x + y = 7, x - y = 1 を解くと x の値は？",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": 1,
+      "explanation": "2x + y = 7 と x - y = 1 を加えると、3x = 8 → x = 8 ÷ 3 は不正解。代入法で解くと x = 3。"
+    },
+    {
+      "question": "関数 y = 3x² のグラフの特徴は？",
+      "options": [
+        "下に凸",
+        "上に凸",
+        "直線",
+        "水平線"
+      ],
+      "correct": 1,
+      "explanation": "y = ax² の形で a > 0 のとき、グラフは上に凸です。"
+    },
+    {
+      "question": "三平方の定理に当てはまるものはどれ？",
+      "options": [
+        "a² + b² = c²",
+        "a + b = c",
+        "abc = 0",
+        "a² - b² = c²"
+      ],
+      "correct": 0,
+      "explanation": "直角三角形において、a² + b² = c² が成り立ちます。"
+    },
+    {
+      "question": "確率で、サイコロを1回投げて偶数が出る確率は？",
+      "options": [
+        "1/2",
+        "1/3",
+        "2/3",
+        "1/6"
+      ],
+      "correct": 0,
+      "explanation": "偶数は2,4,6の3つ。6面中の3面 → 3/6 = 1/2。"
+    },
+    {
+      "question": "連立方程式 2x + y = 7, x - y = 1 を解くと x = ?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": 1,
+      "explanation": "代入または加減法で解くと、x = 3 になります。"
+    },
+    {
+      "question": "√2 × √8 の値は？",
+      "options": [
+        "4",
+        "2√2",
+        "√16",
+        "2"
+      ],
+      "correct": 0,
+      "explanation": "√2 × √8 = √(2×8) = √16 = 4 です。"
+    },
+    {
+      "question": "三平方の定理の別名は？",
+      "options": [
+        "ピタゴラスの定理",
+        "ニュートンの法則",
+        "オームの法則",
+        "ユークリッドの定理"
+      ],
+      "correct": 0,
+      "explanation": "直角三角形の辺の関係を表すピタゴラスの定理です。"
+    },
+    {
+      "question": "一次関数 y = 3x + 2 の傾きは？",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "correct": 0,
+      "explanation": "式の x の係数 3 が傾きになります。"
+    },
+    {
+      "question": "確率で「同様に確からしい」とは？",
+      "options": [
+        "どの結果も同じ可能性",
+        "偶然の結果",
+        "不公平な結果",
+        "予想できる結果"
+      ],
+      "correct": 0,
+      "explanation": "全ての事象が等しい確率で起こることを「同様に確からしい」と言います。"
+    }
+  ],
+  "english": [
+    {
+      "question": "次の文の空欄に入る最も適切な語は？ I ( ) to school every day.",
+      "options": [
+        "go",
+        "goes",
+        "going",
+        "gone"
+      ],
+      "correct": 0,
+      "explanation": "主語が I のとき、動詞は原形の go を使います。"
+    },
+    {
+      "question": "He ( ) playing the guitar now. 空欄に入る語は？",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct": 0,
+      "explanation": "主語が He のとき、現在進行形には is を使います。"
+    },
+    {
+      "question": "Do you like ( ) books? の空欄に入る語は？",
+      "options": [
+        "reading",
+        "read",
+        "to read",
+        "reads"
+      ],
+      "correct": 0,
+      "explanation": "like の後に動名詞を使うのが自然な英語表現です。"
+    },
+    {
+      "question": "This is the book ( ) I read yesterday.",
+      "options": [
+        "which",
+        "who",
+        "what",
+        "where"
+      ],
+      "correct": 0,
+      "explanation": "先行詞が物のときは関係代名詞 which を使います。"
+    },
+    {
+      "question": "I have ( ) finished my homework.",
+      "options": [
+        "already",
+        "yet",
+        "still",
+        "just"
+      ],
+      "correct": 0,
+      "explanation": "肯定文で使うのは already です。"
+    },
+    {
+      "question": "He runs faster than ( ) in the class.",
+      "options": [
+        "anyone",
+        "any",
+        "other",
+        "others"
+      ],
+      "correct": 1,
+      "explanation": "比較級＋than any other 〜（他のどの〜よりも）という形です。"
+    },
+    {
+      "question": "Do you like soccer? に対する適切な答えは？",
+      "options": [
+        "Yes, I do.",
+        "Yes, I am.",
+        "No, I can’t.",
+        "No, I isn’t."
+      ],
+      "correct": 0,
+      "explanation": "一般動詞の疑問文には 'do' で答えます。"
+    },
+    {
+      "question": "「彼は今、テレビを見ている」英語で？",
+      "options": [
+        "He is watching TV.",
+        "He watches TV.",
+        "He was watching TV.",
+        "He is watch TV."
+      ],
+      "correct": 0,
+      "explanation": "現在進行形の 'is watching' を使います。"
+    },
+    {
+      "question": "Where ( ) you live?",
+      "options": [
+        "do",
+        "are",
+        "is",
+        "does"
+      ],
+      "correct": 0,
+      "explanation": "WH疑問文で、主語が you のときは 'do' を使います。"
+    },
+    {
+      "question": "「私たちは猫を飼っている」は？",
+      "options": [
+        "We have a cat.",
+        "We has a cat.",
+        "We are cat.",
+        "We having a cat."
+      ],
+      "correct": 0,
+      "explanation": "'have' は主語が we のときの一般動詞の形です。"
+    },
+    {
+      "question": "Are they playing tennis? の答えとして正しいのは？",
+      "options": [
+        "Yes, they are.",
+        "Yes, they do.",
+        "No, they isn’t.",
+        "No, they can’t."
+      ],
+      "correct": 0,
+      "explanation": "be動詞の疑問文には 'Yes, 主語 + be動詞' で答えます。"
+    }
+  ],
+  "science": [
+    {
+      "question": "水は何度で沸騰しますか（標準気圧）？",
+      "options": [
+        "90℃",
+        "95℃",
+        "100℃",
+        "105℃"
+      ],
+      "correct": 2,
+      "explanation": "水は標準気圧下で 100℃ で沸騰します。"
+    },
+    {
+      "question": "月の満ち欠けの原因は何か？",
+      "options": [
+        "月の公転",
+        "地球の自転",
+        "太陽の回転",
+        "月の自転"
+      ],
+      "correct": 0,
+      "explanation": "月が地球の周りを回ることで、見える部分が変化します。"
+    },
+    {
+      "question": "植物が光合成で使う物質は？",
+      "options": [
+        "二酸化炭素と水",
+        "酸素と水",
+        "窒素と酸素",
+        "二酸化炭素と酸素"
+      ],
+      "correct": 0,
+      "explanation": "光合成では CO2（二酸化炭素）と H2O（水）を使います。"
+    },
+    {
+      "question": "電流の単位は？",
+      "options": [
+        "アンペア",
+        "ボルト",
+        "ワット",
+        "オーム"
+      ],
+      "correct": 0,
+      "explanation": "電流の単位は A（アンペア）です。"
+    },
+    {
+      "question": "地震波のうち、最も早く伝わるのは？",
+      "options": [
+        "P波",
+        "S波",
+        "表面波",
+        "横波"
+      ],
+      "correct": 0,
+      "explanation": "P波は縦波で、最も早く伝わります。"
+    },
+    {
+      "question": "中和の反応でできるものは？",
+      "options": [
+        "塩と水",
+        "酸と水",
+        "アルカリと酸",
+        "水と二酸化炭素"
+      ],
+      "correct": 0,
+      "explanation": "酸とアルカリが中和すると、塩（えん）と水ができます。"
+    },
+    {
+      "question": "静電気が起こる原因は？",
+      "options": [
+        "電子の移動",
+        "音の反射",
+        "光の吸収",
+        "気温の上昇"
+      ],
+      "correct": 0,
+      "explanation": "静電気は物体間で電子が移動することで発生します。"
+    },
+    {
+      "question": "オームの法則の式は？",
+      "options": [
+        "V = IR",
+        "F = ma",
+        "E = mc²",
+        "v = at"
+      ],
+      "correct": 0,
+      "explanation": "オームの法則は電圧 V = 電流 I × 抵抗 R を表します。"
+    },
+    {
+      "question": "地震波で最初に到達する波は？",
+      "options": [
+        "P波",
+        "S波",
+        "表面波",
+        "横波"
+      ],
+      "correct": 0,
+      "explanation": "P波（Primary wave）が最も速く地震発生直後に届きます。"
+    },
+    {
+      "question": "蒸発と沸騰の違いは？",
+      "options": [
+        "蒸発は表面、沸騰は全体から",
+        "蒸発は速い",
+        "沸騰は気化しない",
+        "沸騰は液体が固体になる"
+      ],
+      "correct": 0,
+      "explanation": "蒸発は表面から、沸騰は液体全体から気体になります。"
+    },
+    {
+      "question": "天気予報で「高気圧に覆われる」とは？",
+      "options": [
+        "晴れの確率が高い",
+        "雨が降る",
+        "風が強くなる",
+        "地震が起こる"
+      ],
+      "correct": 0,
+      "explanation": "高気圧に覆われると空気が安定し、晴れやすくなります。"
+    }
+  ],
+  "cats": [
+    {
+      "question": "猫のひげは主に何のために使われている？",
+      "options": [
+        "毛づくろい",
+        "バランスを取る",
+        "距離感を測る",
+        "体温調節"
+      ],
+      "correct": 2,
+      "explanation": "猫のひげは、物との距離や周囲の空間を感じるために使われます。"
+    },
+    {
+      "question": "猫が人にしっぽを巻きつける理由は？",
+      "options": [
+        "親愛の情",
+        "寒さ対策",
+        "警戒",
+        "気まぐれ"
+      ],
+      "correct": 0,
+      "explanation": "しっぽを巻きつけるのは「なついている」サインです。"
+    },
+    {
+      "question": "猫のゴロゴロ音にはどんな効果がある？",
+      "options": [
+        "自己治癒力の向上",
+        "睡眠促進",
+        "敵を威嚇",
+        "呼吸を整える"
+      ],
+      "correct": 0,
+      "explanation": "ゴロゴロ音は猫自身の体を癒す効果があると考えられています。"
+    },
+    {
+      "question": "猫は夜行性ですが、最も活発なのはいつ？",
+      "options": [
+        "明け方と夕方",
+        "深夜",
+        "昼",
+        "正午"
+      ],
+      "correct": 0,
+      "explanation": "薄明薄暮性（明け方と夕方）が猫の特徴です。"
+    },
+    {
+      "question": "猫の「三毛」は何に由来する？",
+      "options": [
+        "毛の色の配合",
+        "遺伝",
+        "食べ物",
+        "年齢"
+      ],
+      "correct": 1,
+      "explanation": "三毛猫の模様は性染色体による遺伝が関係しています。"
+    },
+    {
+      "question": "猫の心拍数は？",
+      "options": [
+        "1分間に120〜140回",
+        "60〜80回",
+        "40〜50回",
+        "160〜200回"
+      ],
+      "correct": 0,
+      "explanation": "猫の心拍数は人間より速く、約120〜140回/分です。"
+    },
+    {
+      "question": "猫が夜に強いのはなぜ？",
+      "options": [
+        "暗闇でもよく見えるから",
+        "夜行性だから",
+        "耳が良いから",
+        "昼間寝てるから"
+      ],
+      "correct": 0,
+      "explanation": "猫は目の構造により、暗闇でもよく見えるのです。"
+    },
+    {
+      "question": "猫の歯の数はいくつ？",
+      "options": [
+        "30本",
+        "20本",
+        "40本",
+        "50本"
+      ],
+      "correct": 0,
+      "explanation": "猫の永久歯は通常30本あります。"
+    },
+    {
+      "question": "猫がよくジャンプできる理由は？",
+      "options": [
+        "筋肉とバネのある足",
+        "羽がある",
+        "軽いから",
+        "訓練されているから"
+      ],
+      "correct": 0,
+      "explanation": "筋肉質で後ろ足が強く、ジャンプ力に優れています。"
+    },
+    {
+      "question": "猫の鳴き声が「ニャー」なのは？",
+      "options": [
+        "人間に向けた声だから",
+        "猫同士の会話",
+        "威嚇",
+        "ストレス"
+      ],
+      "correct": 0,
+      "explanation": "猫は人間との意思疎通のために「ニャー」と鳴くことが多いです。"
+    },
+    {
+      "question": "猫の尻尾でわかることは？",
+      "options": [
+        "気分や感情",
+        "年齢",
+        "性別",
+        "食べたもの"
+      ],
+      "correct": 0,
+      "explanation": "尻尾の動きで猫の気分を読み取れます。"
+    }
+  ]
+}
