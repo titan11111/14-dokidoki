@@ -13,7 +13,7 @@
             <div class="title-content">
                 <h1 class="game-title">勉強クイズゲーム</h1>
                 <div class="character-display">
-                    <img src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="title-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
                 </div>
                 <p class="subtitle">中学3年生の挑戦！</p>
                 <button class="start-btn pixel-btn" onclick="startGameAndPlayBGM()">ゲームスタート</button> 
@@ -33,31 +33,30 @@
             <div class="subject-content">
                 <h2 class="screen-title">科目を選んでください</h2>
                 <div class="character-display">
-                    <img src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="subject-select-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
                 </div>
                 <div class="subject-buttons">
-                    <button class="subject-btn pixel-btn" onclick="startGame('math')">
-                        <span class="subject-icon">📊</span>
-                        <span class="subject-name">数学</span>
-                    </button>
-                    <button class="subject-btn pixel-btn" onclick="startGame('english')">
-                        <span class="subject-icon">🇬🇧</span>
-                        <span class="subject-name">英語</span>
-                    </button>
                     <button class="subject-btn pixel-btn" onclick="startGame('japanese')">
-                        <span class="subject-icon">🇯🇵</span>
+                        <span class="subject-icon">📚</span>
                         <span class="subject-name">国語</span>
+                    </button>
+                    <button class="subject-btn pixel-btn" onclick="startGame('math')">
+                        <span class="subject-icon">➕</span>
+                        <span class="subject-name">数学</span>
                     </button>
                     <button class="subject-btn pixel-btn" onclick="startGame('science')">
                         <span class="subject-icon">🔬</span>
                         <span class="subject-name">理科</span>
                     </button>
-                    <button class="subject-btn special pixel-btn" onclick="startGame('cats')">
-                        <span class="subject-icon">🐱</span>
+                    <button class="subject-btn pixel-btn special" onclick="startGame('english')">
+                        <span class="subject-icon">🇬🇧</span>
+                        <span class="subject-name">英語</span>
+                    </button>
+                    <button class="subject-btn pixel-btn" onclick="startGame('cats')"> <span class="subject-icon">🐈</span>
                         <span class="subject-name">猫雑学</span>
                     </button>
                 </div>
-                <button class="back-btn pixel-btn" onclick="showTitleScreen()">戻る</button>
+                <button class="back-btn pixel-btn" onclick="showTitleScreen()">タイトルに戻る</button>
             </div>
         </div>
 
@@ -65,54 +64,49 @@
             <div class="quiz-content">
                 <div class="game-info">
                     <div class="score-area">
-                        <span class="score-label">正解数:</span>
+                        <span class="score-label">スコア:</span>
                         <span id="score">0</span>
                     </div>
                     <div class="lives-area">
-                        <span class="lives-label">残り:</span>
-                        <div id="lives">
-                            <span class="heart">❤️</span>
-                            <span class="heart">❤️</span>
-                            <span class="heart">❤️</span>
-                        </div>
+                        <span class="lives-label">ライフ:</span>
+                        <span id="lives">❤️❤️❤️</span>
                     </div>
                     <div class="timer-area">
-                        <span class="timer-icon">⏰</span>
+                        <span class="timer-icon">⏱️</span>
                         <span id="timer">10</span>
                     </div>
                 </div>
-
                 <div class="character-display">
-                    <img id="character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="quiz-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
                 </div>
-
                 <div class="question-area">
                     <div class="question-box">
-                        <p id="question-text">問題を読み込み中...</p>
+                        <p id="question-text">問題文が入ります。</p>
                     </div>
                 </div>
-
                 <div class="options-area">
-                    <button class="option-btn pixel-btn" id="option-0" onclick="selectAnswer(0)">
+                    <button class="option-btn pixel-btn" onclick="selectAnswer(0)">
                         <span class="option-letter">A</span>
-                        <span class="option-text"></span>
+                        <span class="option-text">選択肢1</span>
                     </button>
-                    <button class="option-btn pixel-btn" id="option-1" onclick="selectAnswer(1)">
+                    <button class="option-btn pixel-btn" onclick="selectAnswer(1)">
                         <span class="option-letter">B</span>
-                        <span class="option-text"></span>
+                        <span class="option-text">選択肢2</span>
                     </button>
-                    <button class="option-btn pixel-btn" id="option-2" onclick="selectAnswer(2)">
+                    <button class="option-btn pixel-btn" onclick="selectAnswer(2)">
                         <span class="option-letter">C</span>
-                        <span class="option-text"></span>
+                        <span class="option-text">選択肢3</span>
                     </button>
-                    <button class="option-btn pixel-btn" id="option-3" onclick="selectAnswer(3)">
+                    <button class="option-btn pixel-btn" onclick="selectAnswer(3)">
                         <span class="option-letter">D</span>
-                        <span class="option-text"></span>
+                        <span class="option-text">選択肢4</span>
                     </button>
                 </div>
-
                 <div id="result-display" class="result-display hidden">
                     <p id="result-text"></p>
+                    <div id="explanation-area" class="explanation-area hidden"> <h4>解説</h4>
+                        <p id="explanation-text"></p>
+                    </div>
                     <button id="next-btn" class="pixel-btn" onclick="nextQuestion()">次の問題</button>
                 </div>
             </div>
@@ -122,7 +116,7 @@
             <div class="gameover-content">
                 <h2 class="screen-title">ゲームオーバー</h2>
                 <div class="character-display">
-                    <img src="images/ChatGPT Image 2025年6月13日 21_11_05.png" alt="悲しいキャラクター" class="character-img" onerror="this.style.display='none'">
+                    <img id="gameover-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_05.png" alt="キャラクター" class="character-img" onerror="this.style.display='none'">
                 </div>
                 <div class="final-score">
                     <p>最終スコア</p>
@@ -130,7 +124,7 @@
                     <p>問正解</p>
                 </div>
                 <div class="gameover-message">
-                    <p id="gameover-message">また挑戦してみよう！</p>
+                    <p id="gameover-message"></p>
                 </div>
                 <div class="gameover-buttons">
                     <button class="retry-btn pixel-btn" onclick="showSubjectSelect()">もう一度</button>
