@@ -3,151 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>勉強クイズゲーム</title>
+    <title>ベアーズ・ラスト・ワード - Bear's Last Word</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
-        
-        <div id="title-screen" class="screen active">
-            <div class="title-content">
-                <h1 class="game-title">勉強クイズゲーム</h1>
-                <div class="character-display">
-                    <img id="title-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
+    <div class="game-container">
+        <!-- メインメニュー -->
+        <div id="main-menu" class="screen">
+            <div class="menu-content">
+                <h1 class="game-title">ベアーズ・ラスト・ワード</h1>
+                <h2 class="game-subtitle">Bear's Last Word</h2>
+                <div class="bear-intro">
+                    <div class="bear-sprite" id="menu-bear"></div>
+                    <p class="intro-text">可愛いクマのパディを救おう！<br>知識の力で爆弾から守れ！</p>
                 </div>
-                <p class="subtitle">中学3年生の挑戦！</p>
-                <button class="start-btn pixel-btn" onclick="startGameAndPlayBGM()">ゲームスタート</button> 
-                <div class="game-rules">
-                    <h3>ゲームルール</h3>
-                    <ul>
-                        <li>各問題に10秒の制限時間があります</li>
-                        <li>3回間違えるとゲームオーバー</li>
-                        <li>時間切れも間違いになります</li>
-                        <li>5つの科目から選んで挑戦！</li>
-                    </ul>
+                <div class="menu-buttons">
+                    <button class="menu-btn" onclick="startGame()">ゲーム開始</button>
+                    <button class="menu-btn" onclick="showInstructions()">遊び方</button>
+                    <button class="menu-btn" onclick="showHighScores()">ランキング</button>
                 </div>
             </div>
         </div>
 
-        <div id="subject-select" class="screen">
-            <div class="subject-content">
-                <h2 class="screen-title">科目を選んでください</h2>
-                <div class="character-display">
-                    <img id="subject-select-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
+        <!-- 説明画面 -->
+        <div id="instructions" class="screen hidden">
+            <div class="instructions-content">
+                <h2>遊び方</h2>
+                <div class="instruction-item">
+                    <h3>🎯 目的</h3>
+                    <p>爆弾につながれたテディベアのパディを救おう！</p>
                 </div>
-                <div class="subject-buttons">
-                    <button class="subject-btn pixel-btn" onclick="startGame('japanese')">
-                        <span class="subject-icon">📚</span>
-                        <span class="subject-name">国語</span>
-                    </button>
-                    <button class="subject-btn pixel-btn" onclick="startGame('math')">
-                        <span class="subject-icon">➕</span>
-                        <span class="subject-name">数学</span>
-                    </button>
-                    <button class="subject-btn pixel-btn" onclick="startGame('science')">
-                        <span class="subject-icon">🔬</span>
-                        <span class="subject-name">理科</span>
-                    </button>
-                    <button class="subject-btn pixel-btn special" onclick="startGame('english')">
-                        <span class="subject-icon">🇬🇧</span>
-                        <span class="subject-name">英語</span>
-                    </button>
-                    <button class="subject-btn pixel-btn" onclick="startGame('cats')"> <span class="subject-icon">🐈</span>
-                        <span class="subject-name">猫雑学</span>
-                    </button>
+                <div class="instruction-item">
+                    <h3>⏰ ルール</h3>
+                    <p>・制限時間内にクイズに答えよう<br>
+                       ・正解すると時間が延長される<br>
+                       ・不正解でライフが減る<br>
+                       ・ライフが0になるかタイマーが0になるとゲームオーバー</p>
                 </div>
-                <button class="back-btn pixel-btn" onclick="showTitleScreen()">タイトルに戻る</button>
+                <div class="instruction-item">
+                    <h3>💡 ヒント</h3>
+                    <p>・時間停止：タイマーを一時停止<br>
+                       ・50/50：選択肢を2つに絞る<br>
+                       ・スキップ：問題をスキップ</p>
+                </div>
+                <button class="back-btn" onclick="showMainMenu()">戻る</button>
             </div>
         </div>
 
-        <div id="quiz-screen" class="screen">
-            <div class="quiz-content">
-                <div class="game-info">
-                    <div class="score-area">
-                        <span class="score-label">スコア:</span>
-                        <span id="score">0</span>
-                    </div>
-                    <div class="lives-area">
-                        <span class="lives-label">ライフ:</span>
-                        <span id="lives">❤️❤️❤️</span>
-                    </div>
-                    <div class="timer-area">
-                        <span class="timer-icon">⏱️</span>
-                        <span id="timer">10</span>
-                    </div>
+        <!-- ランキング画面 -->
+        <div id="high-scores" class="screen hidden">
+            <div class="scores-content">
+                <h2>ランキング</h2>
+                <div id="scores-list" class="scores-list">
+                    <!-- スコアがここに表示される -->
                 </div>
-                <div class="character-display">
-                    <img id="quiz-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_08.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
-                </div>
-                <div class="question-area">
-                    <div class="question-box">
-                        <p id="question-text">問題文が入ります。</p>
-                    </div>
-                </div>
-                <div class="options-area">
-                    <button class="option-btn pixel-btn" onclick="selectAnswer(0)">
-                        <span class="option-letter">A</span>
-                        <span class="option-text">選択肢1</span>
-                    </button>
-                    <button class="option-btn pixel-btn" onclick="selectAnswer(1)">
-                        <span class="option-letter">B</span>
-                        <span class="option-text">選択肢2</span>
-                    </button>
-                    <button class="option-btn pixel-btn" onclick="selectAnswer(2)">
-                        <span class="option-letter">C</span>
-                        <span class="option-text">選択肢3</span>
-                    </button>
-                    <button class="option-btn pixel-btn" onclick="selectAnswer(3)">
-                        <span class="option-letter">D</span>
-                        <span class="option-text">選択肢4</span>
-                    </button>
-                </div>
-                <div id="result-display" class="result-display hidden">
-                    <p id="result-text"></p>
-                    </div>
+                <button class="back-btn" onclick="showMainMenu()">戻る</button>
             </div>
         </div>
 
-        <div id="gameover-screen" class="screen">
-            <div class="gameover-content">
-                <h2 class="screen-title">ゲームオーバー</h2>
-                <div class="character-display">
-                    <img id="gameover-character-img" src="images/ChatGPT Image 2025年6月13日 21_11_05.png" alt="キャラクター" class="character-img" onerror="this.onerror=null;this.src='images/placeholder.png';">
+        <!-- ゲーム画面 -->
+        <div id="game-screen" class="screen hidden">
+            <!-- ゲームヘッダー -->
+            <div class="game-header">
+                <div class="life-container">
+                    <span class="label">ライフ:</span>
+                    <div id="life-hearts" class="life-hearts">
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                    </div>
+                </div>
+                <div class="score-container">
+                    <span class="label">スコア:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stage-container">
+                    <span class="label">ステージ:</span>
+                    <span id="stage">1</span>
+                </div>
+            </div>
+
+            <!-- タイマーと爆弾 -->
+            <div class="timer-section">
+                <div class="bomb-container">
+                    <div class="bomb">💣</div>
+                    <div class="fuse"></div>
+                </div>
+                <div class="timer-container">
+                    <div id="timer-bar" class="timer-bar">
+                        <div id="timer-fill" class="timer-fill"></div>
+                    </div>
+                    <div id="timer-text" class="timer-text">30</div>
+                </div>
+            </div>
+
+            <!-- メインゲームエリア -->
+            <div class="game-main">
+                <!-- クマのキャラクター -->
+                <div class="bear-section">
+                    <div class="bear-sprite" id="game-bear"></div>
+                    <div id="bear-speech" class="bear-speech hidden">
+                        <p id="bear-message">助けて！</p>
+                    </div>
+                </div>
+
+                <!-- クイズセクション -->
+                <div class="quiz-section">
+                    <div id="question-container" class="question-container">
+                        <h3 id="question">問題がここに表示されます</h3>
+                    </div>
+                    <div id="answers-container" class="answers-container">
+                        <!-- 選択肢がここに表示される -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ヒントボタン -->
+            <div class="hints-section">
+                <button id="hint-freeze" class="hint-btn" onclick="useHint('freeze')" title="時間停止">
+                    ⏸️ <span id="freeze-count">3</span>
+                </button>
+                <button id="hint-fifty" class="hint-btn" onclick="useHint('fifty')" title="50/50">
+                    🎯 <span id="fifty-count">3</span>
+                </button>
+                <button id="hint-skip" class="hint-btn" onclick="useHint('skip')" title="スキップ">
+                    ⏭️ <span id="skip-count">2</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ゲームオーバー画面 -->
+        <div id="game-over" class="screen hidden">
+            <div class="game-over-content">
+                <h2 id="game-over-title">ゲームオーバー</h2>
+                <div class="bear-sprite sad" id="game-over-bear"></div>
+                <div id="game-over-message" class="game-over-message">
+                    <p>パディを救えませんでした...</p>
                 </div>
                 <div class="final-score">
-                    <p>最終スコア</p>
-                    <span id="final-score">0</span>
-                    <p>問正解</p>
+                    <h3>最終スコア: <span id="final-score">0</span></h3>
+                    <p>ステージ: <span id="final-stage">1</span></p>
                 </div>
-                <div class="gameover-message">
-                    <p id="gameover-message"></p>
-                </div>
-                <div class="gameover-buttons">
-                    <button class="retry-btn pixel-btn" onclick="showSubjectSelect()">もう一度</button>
-                    <button class="home-btn pixel-btn" onclick="showTitleScreen()">タイトルへ</button>
+                <div class="game-over-buttons">
+                    <button class="menu-btn" onclick="restartGame()">もう一度</button>
+                    <button class="menu-btn" onclick="showMainMenu()">メニューに戻る</button>
                 </div>
             </div>
         </div>
 
-        <div id="explanation-modal-overlay" class="modal-overlay hidden">
-            <div class="modal-content">
-                <div id="explanation-area" class="explanation-area"> 
-                    <h4>解説</h4>
-                    <p id="explanation-text"></p>
+        <!-- 勝利画面 -->
+        <div id="victory" class="screen hidden">
+            <div class="victory-content">
+                <h2>おめでとう！</h2>
+                <div class="bear-sprite happy" id="victory-bear"></div>
+                <div class="victory-message">
+                    <p>パディを無事に救出しました！</p>
+                    <p>あなたの知識がパディの命を救いました！</p>
                 </div>
-                <button id="next-btn" class="pixel-btn" onclick="nextQuestion()">次の問題</button>
+                <div class="final-score">
+                    <h3>最終スコア: <span id="victory-score">0</span></h3>
+                    <p>クリアステージ: <span id="victory-stage">10</span></p>
+                </div>
+                <div class="victory-buttons">
+                    <button class="menu-btn" onclick="restartGame()">もう一度</button>
+                    <button class="menu-btn" onclick="showMainMenu()">メニューに戻る</button>
+                </div>
             </div>
         </div>
-
     </div>
-
-    <audio id="bgmTitle" src="audio/ponpon.mp3" loop></audio>
-    <audio id="bgmSubjectSelect" src="audio/Ready_for_Comrade.mpm3" loop></audio>
-    <audio id="bgmQuiz" src="audio/Royal_Question.mp3" loop></audio>
-    <audio id="seikaiSound" src="audio/seikai2.mp3"></audio>
-    <audio id="fuseikaiSound" src="audio/fuseikai2.mp3"></audio>
-    <audio id="gameOverSound" src="audio/maou.mp3"></audio>
-    <audio id="levelUpSound" src="audio/levelup.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
