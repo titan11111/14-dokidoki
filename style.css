@@ -147,6 +147,16 @@ body {
 .bear-sprite.happy::before {
     background-image: url(images/bear_happy.svg);
 }
+.bear-sprite.worried::before {
+    background-image: url(images/bear_worried.svg);
+}
+.bear-sprite.panic::before {
+    background-image: url(images/bear_panic.svg);
+}
+/* 強い焦りのときはブルブル震える */
+.bear-sprite.panic {
+    animation: breathe 3s ease-in-out infinite, shake 0.3s ease-in-out infinite;
+}
 @keyframes breathe {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }

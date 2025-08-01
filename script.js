@@ -415,6 +415,7 @@ function stopTimer() {
 function updateTimerDisplay() {
     const timerText = document.getElementById('timer-text');
     const timerFill = document.getElementById('timer-fill');
+    const gameBear = document.getElementById('game-bear');
     
     if (timerText) {
         timerText.textContent = gameState.timer;
@@ -430,6 +431,17 @@ function updateTimerDisplay() {
     if (timerFill) {
         const percentage = (gameState.timer / gameState.maxTimer) * 100;
         timerFill.style.width = Math.max(0, percentage) + '%';
+    }
+
+    // 残り時間に応じてクマの表情を変化
+    if (gameBear && !gameBear.classList.contains('happy') && !gameBear.classList.contains('sad')) {
+        if (gameState.timer <= 5) {
+            gameBear.className = 'bear-sprite panic';
+        } else if (gameState.timer <= 10) {
+            gameBear.className = 'bear-sprite worried';
+        } else {
+            gameBear.className = 'bear-sprite';
+        }
     }
 }
 
