@@ -32,6 +32,36 @@ let currentQuestions = []; // 現在のステージで使用する問題リス�
 // ハイスコアの管理
 let highScores = [];
 
+// クマのセリフパターン
+const bearMessages = {
+    start: [
+        "助けて！問題に答えて！",
+        "一緒にがんばろう！",
+        "君の力を貸して！",
+        "挑戦だ！覚悟はいい？",
+        "さぁ、クイズの時間だ！"
+    ],
+    correct: [
+        "やったー！ありがとう！",
+        "その調子！",
+        "完璧だね！",
+        "さすが！",
+        "最高だよ！"
+    ],
+    incorrect: [
+        "あぁ...助けて...",
+        "次はいけるよ…！",
+        "うぅ…もう一度挑戦だ…",
+        "気を取り直していこう…",
+        "大丈夫、まだチャンスはある！"
+    ]
+};
+
+function getBearMessage(type) {
+    const messages = bearMessages[type];
+    return messages[Math.floor(Math.random() * messages.length)];
+}
+
 // ★変更点2: Audioオブジェクトの定義
 const audio = {
     bgmMenu: new Audio('audio/clear.mp3'), // メインメニューのBGM (適宜変更)
@@ -221,7 +251,7 @@ function startGame() {
     }
     
     // クマのセリフを表示
-    showBearMessage("助けて！問題に答えて！");
+    showBearMessage(getBearMessage('start'));
     
     // ★変更点12: BGM切り替え
     playBGM('game');
@@ -339,7 +369,7 @@ function handleCorrectAnswer() {
         gameBear.className = 'bear-sprite happy';
     }
     
-    showBearMessage("やったー！ありがとう！");
+    showBearMessage(getBearMessage('correct'));
     
     // ★変更点14: 正解音
     playSE('correct');
@@ -356,7 +386,7 @@ function handleIncorrectAnswer() {
         gameBear.className = 'bear-sprite sad';
     }
     
-    showBearMessage("あぁ...助けて...");
+    showBearMessage(getBearMessage('incorrect'));
     
     // ★変更点15: 不正解音
     playSE('incorrect');
